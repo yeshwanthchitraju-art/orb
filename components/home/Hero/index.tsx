@@ -2,17 +2,8 @@
 
 import { motion } from 'framer-motion';
 import { heroContent } from '@/lib/content/hero';
-import HeroGlobe from './HeroGlobe';
-import CommandCenter from './CommandCenter';
+import HeroChat from './HeroChat';
 import { ArrowRight } from 'lucide-react';
-import FullWidthImageSection from './Image';
-import Video from './Video';
-
-const features = [
-  { num: '/01', label: 'Enterprise-grade' },
-  { num: '/02', label: 'Collaborative AI' },
-  { num: '/03', label: 'Real-time sync' },
-];
 
 export default function Hero() {
   return (
@@ -141,25 +132,19 @@ export default function Hero() {
               className="absolute inset-0 rounded-full pointer-events-none"
               style={{ background: 'radial-gradient(ellipse, rgba(37,99,235,0.12) 0%, transparent 70%)' }}
             />
-            {/* <HeroGlobe /> */}
-            <Video />
-
-            {/* Bottom label */}
-            <motion.div
-              className="absolute -bottom-6 left-1/2 -translate-x-1/2 bg-white rounded-full px-3.5 py-1.5 shadow-soft-md border border-neutral-100 flex items-center gap-2 whitespace-nowrap"
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.6, duration: 0.5 }}
-            >
-              <div className="flex -space-x-1">
-                {['FIN', 'HR', 'SLS', 'DEV'].map((l, i) => (
-                  <div key={l} className="w-4 h-4 rounded-full border border-white flex items-center justify-center text-white text-[6px] font-bold"
-                    style={{ backgroundColor: ['#2563eb', '#0d9488', '#7c3aed', '#ea580c'][i] }}>
-                  </div>
-                ))}
+            {/* Center visual — chat preview badge */}
+            <div className="w-full h-full flex items-center justify-center">
+              <div className="bg-white rounded-full px-4 py-2 shadow-soft-md border border-neutral-100 flex items-center gap-2 whitespace-nowrap">
+                <div className="flex -space-x-1">
+                  {['FIN', 'HR', 'SLS', 'DEV'].map((l, i) => (
+                    <div key={l} className="w-4 h-4 rounded-full border border-white flex items-center justify-center text-white text-[6px] font-bold"
+                      style={{ backgroundColor: ['#2563eb', '#0d9488', '#7c3aed', '#ea580c'][i] }}>
+                    </div>
+                  ))}
+                </div>
+                <span className="text-[10px] font-medium text-neutral-600">6 AI Employees deployed</span>
               </div>
-              <span className="text-[10px] font-medium text-neutral-600">6 AI Employees deployed</span>
-            </motion.div>
+            </div>
           </motion.div>
         </div>
 
@@ -175,23 +160,19 @@ export default function Hero() {
           
           </motion.div>
 
-          {/* Bottom: Command Center */}
+          {/* Bottom: Live chat */}
           <motion.div
-  className="flex-1 mt-4 min-h-0 flex flex-col overflow-hidden"
-  initial={{ opacity: 0, y: 20 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{
-    duration: 0.8,
-    delay: 1.1,
-    ease: [0.25, 0.1, 0.25, 1],
-  }}
->
-  <img
-    src="/img1.png" 
-    alt="AI Agents Demo"
-    className="w-full h-full object-contain rounded-2xl"
-  />
-</motion.div>
+            className="flex-1 mt-4 min-h-0 flex flex-col overflow-hidden"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.8,
+              delay: 1.1,
+              ease: [0.25, 0.1, 0.25, 1],
+            }}
+          >
+            <HeroChat />
+          </motion.div>
         </div>
       </div>
 

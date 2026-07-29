@@ -11,28 +11,27 @@ import Security from '@/components/home/Security';
 import Results from '@/components/home/Results';
 import Testimonials from '@/components/home/Testimonials';
 import CTA from '@/components/home/CTA';
-import FullWidthImageSection from '@/components/home/Hero/Image';
+import FeatureGrid from '@/components/home/FeatureGrid';
 
 export default function Home() {
   return (
     <>
-      {/* <Navbar /> */}
+      <Navbar />
       <main>
         <Hero />
-              {/* <FullWidthImageSection /> */}
-
-        {/* <Trusted />
+        <Trusted />
         <Story />
         <VirtualOffice />
         <AIEmployees />
+        <FeatureGrid />
         <Workflow />
         <Architecture />
         <Security />
         <Results />
         <Testimonials />
-        <CTA /> */}
+        <CTA />
       </main>
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 }
