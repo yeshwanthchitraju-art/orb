@@ -1,0 +1,202 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 220 13% 7%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 13% 7%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 13% 7%;
+    --primary: 221 83% 53%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 220 13% 20%;
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 46%;
+    --accent: 220 14% 96%;
+    --accent-foreground: 220 13% 20%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 221 83% 53%;
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: #ffffff;
+    color: #111827;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: rgba(37, 99, 235, 0.15);
+    color: #1e3a8a;
+  }
+
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #f9fafb;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #d1d5db;
+    border-radius: 2px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #2563eb;
+  }
+}
+
+@layer utilities {
+  /* Text gradients */
+  .text-gradient-blue {
+    background: linear-gradient(135deg, #2563eb 0%, #0ea5e9 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-dark {
+    background: linear-gradient(180deg, #111827 0%, #374151 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Cards */
+  .card-soft {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.03);
+  }
+
+  .card-soft:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07), 0 1px 3px rgba(0, 0, 0, 0.04);
+    border-color: #d1d5db;
+  }
+
+  .card-elevated {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06), 0 2px 8px rgba(0, 0, 0, 0.04);
+  }
+
+  .card-glass {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  }
+
+  /* Glows */
+  .glow-blue {
+    box-shadow: 0 0 40px rgba(37, 99, 235, 0.15), 0 0 80px rgba(37, 99, 235, 0.06);
+  }
+
+  .glow-blue-sm {
+    box-shadow: 0 0 20px rgba(37, 99, 235, 0.1);
+  }
+
+  /* Grid / dot patterns */
+  .grid-bg-light {
+    background-image:
+      linear-gradient(rgba(37, 99, 235, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(37, 99, 235, 0.04) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+
+  .dot-bg-light {
+    background-image: radial-gradient(rgba(37, 99, 235, 0.08) 1.5px, transparent 1.5px);
+    background-size: 28px 28px;
+  }
+
+  /* Section accents */
+  .section-top-glow {
+    background: radial-gradient(ellipse 80% 40% at 50% 0%, rgba(37, 99, 235, 0.06) 0%, transparent 70%);
+  }
+
+  /* Badge */
+  .badge-blue {
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    color: #2563eb;
+  }
+
+  .badge-teal {
+    background: #f0fdfa;
+    border: 1px solid #99f6e4;
+    color: #0d9488;
+  }
+}
+
+/* Smooth scroll via Lenis */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+/* Typography */
+.heading-display {
+  font-size: clamp(2.8rem, 7vw, 6.5rem);
+  font-weight: 700;
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+}
+
+.heading-xl {
+  font-size: clamp(2rem, 4.5vw, 4rem);
+  font-weight: 700;
+  line-height: 1.06;
+  letter-spacing: -0.028em;
+}
+
+.heading-lg {
+  font-size: clamp(1.4rem, 3vw, 2.5rem);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.body-lg {
+  font-size: clamp(1rem, 1.4vw, 1.2rem);
+  line-height: 1.65;
+}
+
+.stat-number {
+  font-size: clamp(3rem, 7vw, 6.5rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 0.9;
+}
+
+.label-mono {
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  font-size: 0.675rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
