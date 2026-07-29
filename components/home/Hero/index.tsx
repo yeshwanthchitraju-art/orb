@@ -3,11 +3,11 @@
 import { motion } from 'framer-motion';
 import { heroContent } from '@/lib/content/hero';
 import HeroChat from './HeroChat';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Play } from 'lucide-react';
 
 export default function Hero() {
   return (
-    <section className="relative h-screen min-h-[640px] max-h-[1000px] flex flex-col overflow-hidden bg-[#fbfbfb]">
+    <section className="relative min-h-screen max-h-[1000px] flex flex-col overflow-hidden bg-[#fbfbfb]">
       {/* Subtle noise/texture overlay */}
       <div className="absolute inset-0 pointer-events-none opacity-[0.015]"
         style={{
@@ -16,11 +16,11 @@ export default function Hero() {
         }}
       />
 
-      {/* Main grid — 3 columns */}
-      <div className="relative max-w-9xl m-auto z-10 flex-1 grid grid-cols-[1fr_auto_1fr] pt-[64px] overflow-hidden">
+      {/* Main grid — 2 columns on desktop, stacked on mobile */}
+      <div className="relative z-10 flex-1 grid grid-cols-1 lg:grid-cols-2 pt-[80px] overflow-hidden">
 
         {/* ── LEFT COLUMN ── */}
-        <div className="flex flex-col justify-between px-8 lg:px-12 py-8 lg:py-10">
+        <div className="flex flex-col justify-between px-6 sm:px-10 lg:px-14 py-6 lg:py-10">
           {/* Top: headline + subtitle + CTAs */}
           <div className="flex flex-col gap-5 mt-2">
             {/* Eyebrow */}
@@ -30,19 +30,18 @@ export default function Hero() {
               transition={{ duration: 0.5, delay: 0.3 }}
             >
               <span className="inline-flex items-center gap-2 text-[10px] font-semibold text-brand-600 uppercase tracking-[0.12em]">
-                {/* <span className="w-4 h-px bg-brand-600" /> */}
                 {heroContent.eyebrow}
               </span>
             </motion.div>
 
-            {/* Headline — controlled size */}
+            {/* Headline */}
             <div>
               {['Meet the workforce', 'that never sleeps.'].map((line, i) => (
                 <div key={i} className="overflow-hidden">
                   <motion.h1
                     className="block font-bold text-neutral-900 leading-[1.05]"
                     style={{
-                      fontSize: 'clamp(1.9rem, 3.2vw, 3.2rem)',
+                      fontSize: 'clamp(2rem, 3.5vw, 3.5rem)',
                       letterSpacing: '-0.03em',
                     }}
                     initial={{ y: '110%', opacity: 0 }}
@@ -57,8 +56,8 @@ export default function Hero() {
 
             {/* Subtitle */}
             <motion.p
-              className="text-neutral-500 leading-relaxed max-w-xs"
-              style={{ fontSize: 'clamp(0.8rem, 1.1vw, 0.95rem)' }}
+              className="text-neutral-500 leading-relaxed max-w-sm"
+              style={{ fontSize: 'clamp(0.85rem, 1.1vw, 1rem)' }}
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.8 }}
@@ -89,9 +88,9 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          {/* Bottom: floating info card like the reference */}
+          {/* Bottom: floating info card */}
           <motion.div
-            className="bg-white rounded-2xl p-4 shadow-soft-md border border-neutral-100 max-w-[240px]"
+            className="bg-white rounded-2xl p-4 shadow-soft-md border border-neutral-100 max-w-[260px] mt-6"
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 1.3 }}
@@ -118,58 +117,36 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        {/* ── CENTER: Globe ── */}
-        <div className="flex items-center justify-center px-4 py-6 relative">
+        {/* ── RIGHT COLUMN — Video + Chat stacked ── */}
+        <div className="flex flex-col px-6 sm:px-10 lg:px-14 py-6 lg:py-10 min-h-0 gap-4">
+          {/* Video */}
           <motion.div
-            className="relative"
-            style={{ width: 'min(42vh, 420px)', height: 'min(42vh, 420px)' }}
-            initial={{ opacity: 0, scale: 0.88 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.1, delay: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-          >
-            {/* Glow behind globe */}
-            <div
-              className="absolute inset-0 rounded-full pointer-events-none"
-              style={{ background: 'radial-gradient(ellipse, rgba(37,99,235,0.12) 0%, transparent 70%)' }}
-            />
-            {/* Center visual — chat preview badge */}
-            <div className="w-full h-full flex items-center justify-center">
-              <div className="bg-white rounded-full px-4 py-2 shadow-soft-md border border-neutral-100 flex items-center gap-2 whitespace-nowrap">
-                <div className="flex -space-x-1">
-                  {['FIN', 'HR', 'SLS', 'DEV'].map((l, i) => (
-                    <div key={l} className="w-4 h-4 rounded-full border border-white flex items-center justify-center text-white text-[6px] font-bold"
-                      style={{ backgroundColor: ['#2563eb', '#0d9488', '#7c3aed', '#ea580c'][i] }}>
-                    </div>
-                  ))}
-                </div>
-                <span className="text-[10px] font-medium text-neutral-600">6 AI Employees deployed</span>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-
-        {/* ── RIGHT COLUMN ── */}
-        <div className="flex flex-col px-6 lg:px-8 py-8 lg:py-10 min-h-0 overflow-hidden">
-          {/* Top: numbered feature list (like reference) */}
-          <motion.div
-            className="flex flex-col gap-3 items-end text-right"
-            initial={{ opacity: 0, x: 16 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-          >
-          
-          </motion.div>
-
-          {/* Bottom: Live chat */}
-          <motion.div
-            className="flex-1 mt-4 min-h-0 flex flex-col overflow-hidden"
+            className="relative rounded-2xl overflow-hidden border border-neutral-200 shadow-soft-md flex-shrink-0"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{
-              duration: 0.8,
-              delay: 1.1,
-              ease: [0.25, 0.1, 0.25, 1],
-            }}
+            transition={{ duration: 0.8, delay: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
+          >
+            <video
+              src="/video1.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full h-[200px] sm:h-[240px] object-cover"
+            />
+            {/* Overlay badge */}
+            <div className="absolute bottom-3 left-3 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1.5 flex items-center gap-1.5 shadow-soft">
+              <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
+              <span className="text-[10px] font-medium text-neutral-700">Live demo</span>
+            </div>
+          </motion.div>
+
+          {/* Live chat */}
+          <motion.div
+            className="flex-1 min-h-0 flex flex-col overflow-hidden"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1.1, ease: [0.25, 0.1, 0.25, 1] }}
           >
             <HeroChat />
           </motion.div>
@@ -197,7 +174,6 @@ export default function Hero() {
           ))}
         </div>
       </motion.div>
-
     </section>
   );
 }
