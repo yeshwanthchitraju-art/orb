@@ -254,7 +254,7 @@ export default function HeroAgentChat() {
   const isTyping = visible < agent.messages.length && visible > 0;
 
   return (
-    <div className="flex flex-col bg-white rounded-3xl border border-neutral-200 shadow-soft-lg overflow-hidden h-[520px] sm:h-[560px] xl:h-full xl:max-h-[640px]">
+    <div className="flex flex-col bg-white rounded-3xl border border-neutral-200 shadow-soft-lg overflow-hidden h-[560px]">
       {/* Header */}
       <div className="flex items-center justify-between px-4 py-3 border-b border-neutral-100 flex-shrink-0">
         <div className="flex items-center gap-2.5 min-w-0">
