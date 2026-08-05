@@ -21,17 +21,17 @@ export default function Home() {
         <Hero />
         <Trusted />
         <Story />
-        <VirtualOffice />
-        <AIEmployees />
-        <FeatureGrid />
-        <Workflow />
-        <Architecture />
-        <Security />
-        <Results />
-        <Testimonials />
+        {/* <VirtualOffice /> */}
+        {/* <AIEmployees /> */}
+        {/* <FeatureGrid /> */}
+        {/* <Workflow /> */}
+        {/* <Architecture /> */}
+        {/* <Security /> */}
+        {/* <Results /> */}
+        {/* <Testimonials /> */}
         <CTA />
       </main>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

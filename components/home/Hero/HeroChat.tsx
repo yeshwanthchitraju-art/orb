@@ -81,7 +81,7 @@ export default function HeroChat() {
   }, [visible]);
 
   return (
-    <div className="w-full h-full flex flex-col min-h-0">
+    <div className="w-full h-[400px] flex flex-col min-h-0">
       <AnimatePresence mode="wait">
         <motion.div
           key={chatIdx}

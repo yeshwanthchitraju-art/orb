@@ -38,9 +38,7 @@ export default function Navbar() {
         <div className="relative max-w-7xl mx-auto px-6 md:px-10 h-[60px] flex items-center justify-between">
           {/* Logo */}
           <a href="#" className="flex items-center gap-2 group">
-            <div className="w-7 h-7 rounded-lg bg-brand-600 flex items-center justify-center shadow-blue-sm">
-              <Zap size={13} className="text-white" fill="white" />
-            </div>
+         
             <span className="text-neutral-900 font-semibold tracking-tight text-[15px]">Orbiant</span>
           </a>
 

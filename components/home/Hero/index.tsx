@@ -17,7 +17,7 @@ export default function Hero() {
       />
 
       {/* Main grid — 2 columns on desktop, stacked on mobile */}
-      <div className="relative z-10 flex-1 grid grid-cols-1 lg:grid-cols-2 pt-[80px] overflow-hidden">
+      <div className="relative z-10  max-w-7xl m-auto flex-1 grid grid-cols-1 lg:grid-cols-2 pt-[80px] overflow-hidden">
 
         {/* ── LEFT COLUMN ── */}
         <div className="flex flex-col justify-between px-6 sm:px-10 lg:px-14 py-6 lg:py-10">
@@ -119,31 +119,11 @@ export default function Hero() {
 
         {/* ── RIGHT COLUMN — Video + Chat stacked ── */}
         <div className="flex flex-col px-6 sm:px-10 lg:px-14 py-6 lg:py-10 min-h-0 gap-4">
-          {/* Video */}
-          <motion.div
-            className="relative rounded-2xl overflow-hidden border border-neutral-200 shadow-soft-md flex-shrink-0"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-          >
-            <video
-              src="/video1.mp4"
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="w-full h-[200px] sm:h-[240px] object-cover"
-            />
-            {/* Overlay badge */}
-            <div className="absolute bottom-3 left-3 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1.5 flex items-center gap-1.5 shadow-soft">
-              <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
-              <span className="text-[10px] font-medium text-neutral-700">Live demo</span>
-            </div>
-          </motion.div>
+       
 
           {/* Live chat */}
           <motion.div
-            className="flex-1 min-h-0 flex flex-col overflow-hidden"
+            className="flex-1 min-h-0 flex flex-col items-center justify-center overflow-hidden"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.1, ease: [0.25, 0.1, 0.25, 1] }}
