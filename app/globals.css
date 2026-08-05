@@ -200,3 +200,11 @@ html.lenis, html.lenis body {
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
+
+.scrollbar-none {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
